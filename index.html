@@ -46,11 +46,11 @@
     <meta name="twitter:description" content="./Wawa Pengu, the legendary Penguin memecoin on Solana, slides to the peak with icy power and glory. Join the Pengu waddle!" />
     <meta name="twitter:image" content="/open.png" />
     <link rel="icon" href="/icon.ico?29ab794f67f9e521" type="image/x-icon" sizes="48x48">
-    <script src="./https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="./https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="./https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>
     <style>
-      #wawaCat.clicked {
+      #wawaContainer.clicked {
         transform: translateX(-50%) scale(1.1);
         transition: transform 0.2s ease-in-out;
       }
@@ -257,19 +257,19 @@
           </div>
           <div id="navMenu" class="flex flex-col absolute top-full left-[15px] transform min-w-[600px] bg-white md:static md:flex md:flex-row md:justify-between md:items-center gap-4 p-4 md:p-0 md:bg-transparent mt-2 md:mt-0 rounded-lg md:rounded-none shadow-lg md:shadow-none hidden" style="opacity: 1; will-change: opacity, transform; transform: none;">
             <div class="flex flex-row justify-center gap-2 my-2 md:my-0">
-              <a href="./https://x.com/" target="_blank" rel="noopener noreferrer" style="opacity: 1; will-change: opacity, transform; transform: none;">
+              <a href="https://x.com/" target="_blank" rel="noopener noreferrer" style="opacity: 1; will-change: opacity, transform; transform: none;">
                 <img alt="Twitter" loading="lazy" width="500" height="500" decoding="async" data-nimg="1" class="w-10" style="color:transparent; filter: brightness(0) invert(0);" src="/_next/static/media/Twitter.png">
               </a>
-              <a href="./https://x.com/i/communities/" target="_blank" rel="noopener noreferrer" style="opacity: 1; will-change: opacity, transform; transform: none;">
+              <a href="https://x.com/i/communities/" target="_blank" rel="noopener noreferrer" style="opacity: 1; will-change: opacity, transform; transform: none;">
                 <img alt="Twitter Communities" loading="lazy" width="500" height="500" decoding="async" data-nimg="1" class="w-10" style="color:transparent; filter: brightness(0) invert(0);" src="/_next/static/media/Telegram.png">
               </a>
-              <a href="./https://dexscreener.com/solana" target="_blank" rel="noopener noreferrer" style="opacity: 1; will-change: opacity, transform; transform: none;">
+              <a href="https://dexscreener.com/solana" target="_blank" rel="noopener noreferrer" style="opacity: 1; will-change: opacity, transform; transform: none;">
                 <img alt="DexScreener" loading="lazy" width="500" height="500" decoding="async" data-nimg="1" class="w-10" style="color:transparent; filter: brightness(0) invert(0);" src="/_next/static/media/CoinGecko.png">
               </a>
 
             </div>
             <div>
-              <a href="./https://pump.fun/" target="_blank" rel="noopener noreferrer" class="w-auto py-2 px-4 bg-orange-500 text-white rounded-full border-2 border-orange-400 hover:bg-orange-600 transition-all duration-300 text-center block font-semibold shadow-lg" style="opacity: 1; will-change: opacity, transform; transform: none;">Buy Now</a>
+              <a href="https://pump.fun/" target="_blank" rel="noopener noreferrer" class="w-auto py-2 px-4 bg-orange-500 text-white rounded-full border-2 border-orange-400 hover:bg-orange-600 transition-all duration-300 text-center block font-semibold shadow-lg" style="opacity: 1; will-change: opacity, transform; transform: none;">Buy Now</a>
             </div>
           </div>
         </nav>
@@ -277,13 +277,16 @@
       <div class="flex flex-col items-center justify-between min-h-screen w-full relative">
         <div class="w-full h-screen relative z-0 overflow-hidden">
           <img src="/_next/static/media/background.png" alt="Background" class="absolute inset-0 w-full h-full object-cover parallax-bg" style="transform: translate(0, 0) scale(1.1);">
+          <button id="clickButton" class="absolute inset-0 opacity-0 z-50 cursor-pointer w-full h-full" role="button" aria-label="Click to increment Wawa Cat counter"></button>
           <div class="flex-grow flex flex-col items-center justify-center relative z-40">
-            <button id="clickButton" class="absolute inset-0 opacity-0 z-30 cursor-pointer w-full h-[100vh]" role="button" aria-label="Click to increment Wawa Cat counter"></button>
+
             <h2 id="clickCounter" class="text-lg sm:text-xl font-bold mt-24 z-40 bg-[rgba(0,0,0,0.1)] backdrop-blur-lg px-4 py-2 rounded-full">
               Total Clicks: 0</h2>
           </div>
-          <img id="wawaCat" alt="Wawa Cat" loading="lazy" decoding="async" data-nimg="1" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-[150px] md:w-[280px] lg:w-[350px] xl:w-[400px] max-w-[80vw] max-h-[50vh] md:max-h-[65vh] object-contain" style="color:transparent; max-width: 80vw !important;" src="/_next/static/media/wowo.webp">
-          <img id="wawaCry" alt="Wawa Cry" loading="lazy" decoding="async" data-nimg="1" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-20 w-[150px] md:w-[280px] lg:w-[350px] xl:w-[400px] max-w-[80vw] max-h-[50vh] md:max-h-[65vh] object-contain opacity-0" style="color:transparent; max-width: 80vw !important;" src="/_next/static/media/wowo-cry.webp">
+          <div id="wawaContainer" class="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10 w-[150px] md:w-[280px] lg:w-[350px] xl:w-[400px] max-w-[80vw] max-h-[50vh] md:max-h-[65vh]" style="max-width: 80vw !important;">
+            <img id="wawaCat" alt="Wawa Cat" loading="lazy" decoding="async" data-nimg="1" class="relative z-0 w-full h-full object-contain" style="color:transparent;" src="/_next/static/media/wowo.webp">
+            <img id="wawaCry" alt="Wawa Cry" loading="lazy" decoding="async" data-nimg="1" class="absolute z-10 inset-0 w-full h-full object-contain opacity-0" style="color:transparent;" src="/_next/static/media/wowo-cry.webp">
+          </div>
           <!-- Decorative Ghost Elements -->
           <div class="absolute bottom-10 left-5 z-0 w-16 sm:w-20 md:w-24 lg:w-28 ghost" data-ghost="bottom-left" aria-hidden="true">
             <img alt="Ghost Bottom Left" loading="lazy" width="137" height="154" decoding="async" data-nimg="1" style="color:transparent" src="/_next/static/media/ghostbl.png">
@@ -649,21 +652,27 @@
         const wawaCat = document.getElementById('wawaCat');
         const wawaCry = document.getElementById('wawaCry');
         const clickSound = document.getElementById('clickSound');
+        const wawaContainer = document.getElementById('wawaContainer');
         let clickCount = parseInt(localStorage.getItem('wawaClickCount')) || 0;
         clickCounter.textContent = `Total Clicks: ${clickCount}`;
         clickButton.addEventListener('click', () => {
           clickCount += 1;
           localStorage.setItem('wawaClickCount', clickCount);
           clickCounter.textContent = `Total Clicks: ${clickCount}`;
-          wawaCat.classList.add('clicked');
-          setTimeout(() => wawaCat.classList.remove('clicked'), 200);
-          gsap.to(wawaCat, { scale: 1, duration: 0, yoyo: true });
-          // Show wawa-cry.png for 300ms
+          
+          // Animate container (scale)
+          wawaContainer.classList.add('clicked');
+          setTimeout(() => {
+            wawaContainer.classList.remove('clicked');
+          }, 200);
+
+          // Show wawa-cry.png for 300ms (opacity only)
           gsap.to(wawaCry, {
             opacity: 1, duration: 0.15, onComplete: () => {
               gsap.to(wawaCry, { opacity: 0, duration: 0, delay: 0 });
             }
           });
+
           // Play sound effect
           clickSound.currentTime = 0; // Reset to start
           clickSound.play().catch((error) => {
