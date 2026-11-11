@@ -1,0 +1,5 @@
+.claude
+.vscode
+desktop.ini
+**/desktop.ini
+.env*
